@@ -1,37 +1,129 @@
-# AI_Hackathon_GOOBER
+# GOOBER - Smart Garbage Collection System
 
-## GOOBER: A Community-Driven Waste Management Solution
-GOOBER revolutionizes waste management by connecting local residents with garbage collectors through real-time coordination, similar to ride-sharing platforms. This web-based application allows users to report garbage accumulation in their areas by sending geotagged pictures, ensuring efficient and timely waste collection with AI-powered image validation.
+## Overview
+An intelligent waste management solution that leverages Azure cloud services and Microsoft Fabric to automate garbage collection requests through image classification and real-time location tracking.
 
-GOOBER addresses inefficiencies in garbage collection systems by leveraging community participation and real-time coordination. Users report garbage issues, and the system alerts the nearest available garbage collector, while admins monitor and oversee the process.
+## Features
+- Automated garbage detection using machine learning
+- Real-time location tracking and coordinate conversion
+- Seamless communication between citizens and garbage collectors
+- Comprehensive monitoring and reporting system
+- Cloud-native architecture with scalable components
 
-### Problem Statement
-Traditional garbage collection methods often lead to delays and inconsistent service. GOOBER solves these issues with a simple platform for reporting garbage and ensuring prompt collection.
+## Architecture
+The system consists of the following components:
+- User & Garbage Collector Web Applications (Azure App Service)
+- Azure Functions (HTTP & Service Bus triggers)
+- Microsoft Fabric EventStream
+- KQL Database
+- Microsoft Fabric Lakehouse
+- Image Classification Model
+- Power BI Reports
 
-### Core Concept
-* Users report garbage by uploading images and location data.
-* Garbage collectors receive notifications with the location, image, and timestamp for immediate action.
-* Admins manage the overall workflow, ensuring timely collections.
+## Prerequisites
+- Azure subscription
+- Microsoft Fabric workspace
+- OpenCage API key
+- Node.js (for web applications)
+- Python 3.8+ (for ML components)
 
-### System Architecture
-The system consists of three components:
+## Setup Instructions
 
-1. **User Frontend**: Where users report garbage.
-2. **Garbage Collector Interface**: Receives and manages cleanup requests.
-3. **Admin Portal**: Oversees the entire system.
-All interfaces are built using the Flask framework and are deployed on Azure App Service, ensuring consistent user experiences.
+### Azure Resources
+1. Create Azure Function App
+2. Set up Azure App Service
+3. Configure Service Bus
+4. Create KQL Database
 
-## Key Features
-* Real-time garbage reporting
-* Automated assignment to the nearest garbage collector
-* AI-powered image validation
-* Location-based services
-* Admin monitoring and oversight
-* Scalable architecture and efficient data handling
+### Microsoft Fabric Setup
+1. Create workspace
+2. Configure EventStream
+3. Set up Lakehouse
+4. Import ML notebooks and experiments
 
-## What's Next for GOOBER
-1. **Smart Analytics**: Predictive models for proactive waste management.
-2. **User Engagement**: Gamification features to drive community involvement.
-3. **Collection Optimization**: AI-powered route optimization.
-4. **Partnerships**: Collaborating with municipal services and environmental organizations.
-**Mobile Apps**: Development of native mobile apps for better user experience.
+### Web Applications
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/smart-garbage-collection
+```
+
+2. Install dependencies
+```bash
+cd web-app
+npm install
+```
+
+3. Configure environment variables
+```bash
+cp .env.example .env
+# Edit .env with your configurations
+```
+
+4. Deploy to Azure App Service
+```bash
+az webapp up --name YourAppName --resource-group YourResourceGroup
+```
+
+## Configuration
+Create a `config.json` file with the following settings:
+```json
+{
+  "azureFunctionUrl": "your-function-url",
+  "openCageApiKey": "your-api-key",
+  "eventStreamConnectionString": "your-connection-string"
+}
+```
+
+## Usage
+
+### User Application
+1. Access the web application
+2. Click to capture image of garbage
+3. System automatically:
+   - Captures location
+   - Processes image
+   - Sends notification if garbage is detected
+
+### Garbage Collector Application
+1. Receive notifications of new requests
+2. View request details and location
+3. Submit cleanup verification
+
+### Admin Dashboard
+1. Access Power BI reports
+2. Monitor collection status
+3. Generate performance metrics
+
+## Project Structure
+```
+├── azure-functions/
+│   ├── HttpTrigger/
+│   └── ServiceBusTrigger/
+├── web-apps/
+│   ├── user-app/
+│   └── collector-app/
+├── ml-notebooks/
+│   ├── preprocessing/
+│   └── model-training/
+├── powerbi/
+│   └── reports/
+└── docs/
+```
+
+## Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+- Microsoft Azure Documentation
+- Microsoft Fabric Team
+- OpenCage API Documentation
+
+## Support
+For support, please open an issue in the GitHub repository or contact the development team.
