@@ -42,36 +42,9 @@ The system consists of the following components:
 4. Import ML notebooks and experiments
 
 ### Web Applications
-1. Clone the repository
+Clone the repository
 ```bash
-git clone https://github.com/yourusername/smart-garbage-collection
-```
-
-2. Install dependencies
-```bash
-cd web-app
-npm install
-```
-
-3. Configure environment variables
-```bash
-cp .env.example .env
-# Edit .env with your configurations
-```
-
-4. Deploy to Azure App Service
-```bash
-az webapp up --name YourAppName --resource-group YourResourceGroup
-```
-
-## Configuration
-Create a `config.json` file with the following settings:
-```json
-{
-  "azureFunctionUrl": "your-function-url",
-  "openCageApiKey": "your-api-key",
-  "eventStreamConnectionString": "your-connection-string"
-}
+git clone https://github.com/dimplegupta9/AI_Hackathon_GOOBER/
 ```
 
 ## Usage
@@ -116,9 +89,6 @@ Create a `config.json` file with the following settings:
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 - Microsoft Azure Documentation
